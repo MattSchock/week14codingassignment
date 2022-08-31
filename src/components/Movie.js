@@ -8,7 +8,7 @@ export default class Movie extends React.Component {
         super(props);
 
         this.state = {
-            name : "stuff",
+            name : "",
             stars : '0',
             ReviewList : []
         }
@@ -17,7 +17,7 @@ export default class Movie extends React.Component {
     render() {
         return(
             <div>
-                
+             <h2>{this.props.name}</h2>
             </div>
         )
     }
