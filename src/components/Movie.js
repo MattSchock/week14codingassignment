@@ -11,9 +11,9 @@ export default class Movie extends React.Component {
 
         this.state = {
             name : "",
-            stars : 0,
-            starsArray : [],
-            ReviewList : ['Review1', 'Review2', 'Review3'],
+            stars : 0,             //single placeholder for star rating
+            starsArray : [],      //Array here if I want to average stars in the future
+            ReviewList : ['Review1', 'Review2', 'Review3'],      //hard coded array for strings of reviews
             id : 0
         }
     }
@@ -32,19 +32,4 @@ export default class Movie extends React.Component {
             </div>
         )
     }
-
-
-
-
-
-    // render() {
-    //     return(
-    //         React.createElement('div', {className: 'card w-75'},
-    //         React.createElement('div', {className: 'card-header bg-success text-white'}, `${this.props.name}`),
-    //         React.createElement('div', {className: 'card-body'}, `Star Rating= ${this.props.stars}`),
-    //         React.createElement('div', {className: 'card-body'}, `Reviews = `),
-    //         React.createElement('div', {className: 'card-footer'}, ReviewButton),
-    //         ) 
-    //     )
-    // }
 }

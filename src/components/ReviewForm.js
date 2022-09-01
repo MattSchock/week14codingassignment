@@ -6,7 +6,7 @@
 //         return (
 //             <div>
 //                 <form className="form-control" type="text" placeholder="Review" id="reviewFormId">Review</form>
-//                 <button className="btn btn-primary" onClick={() => this.setState(state => ({reviewList : reviewList.}))} >Submit</button>
+//                 <button className="btn btn-primary" onClick={() => this.setState(state => ({ReviewList: ReviewList.push(reviewFormId.val())}))} >Submit</button>
 //             </div>
 //         )
 //     }
