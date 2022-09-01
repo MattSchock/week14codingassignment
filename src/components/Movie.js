@@ -21,14 +21,14 @@ export default class Movie extends React.Component {
     render() {
         return (
             <div className="card w-75">
-                <div className="card-header bg-success text-white">{this.props.name}</div>
-                <div className="card-body">Star Rating = {this.props.stars}</div>
+                <div className="card-header bg-success text-white">{this.state.name}</div>
+                <div className="card-body">Star Rating = {this.state.stars}</div>
                 <div className="card-body">Reviews = {/*{this.props.ReviewList.forEach(() =>
                     React.createElement('div', {}, ReviewList[i])
                 )}*/}
                 
                 </div>  
-                <div className="card-footer">{ReviewButton} {StarsButton}</div>
+                <div className="card-footer"><StarsButton /> </div>
             </div>
         )
     }

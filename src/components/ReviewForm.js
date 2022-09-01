@@ -1,13 +1,13 @@
-import React from 'react';
+// import React from 'react';
 
 
-export default class ReviewButton extends React.Component {
-    render() {
-        return (
-            <div>
-                <input className="form-control" type="text" placeholder="Review" id="reviewFormId">Test</input>
-                <button className="btn btn-primary" onClick="this.">Submit</button>
-            </div>
-        )
-    }
-}
+// export default class ReviewButton extends React.Component {
+//     render() {
+//         return (
+//             <div>
+//                 <form className="form-control" type="text" placeholder="Review" id="reviewFormId">Review</form>
+//                 <button className="btn btn-primary" onClick={() => this.setState(state => ({reviewList : reviewList.}))} >Submit</button>
+//             </div>
+//         )
+//     }
+// }
