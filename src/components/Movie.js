@@ -1,5 +1,6 @@
 import React from 'react';
 import ReviewButton from '../components/ReviewForm';
+import StarsButton from '../components/Stars';
 
 
 
@@ -11,6 +12,7 @@ export default class Movie extends React.Component {
         this.state = {
             name : "",
             stars : 0,
+            starsArray : [],
             ReviewList : ['Review1', 'Review2', 'Review3'],
             id : 0
         }
@@ -26,7 +28,7 @@ export default class Movie extends React.Component {
                 )}*/}
                 
                 </div>  
-                <div className="card-footer">{ReviewButton}</div>
+                <div className="card-footer">{ReviewButton} {StarsButton}</div>
             </div>
         )
     }
