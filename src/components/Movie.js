@@ -1,4 +1,5 @@
 import React from 'react';
+import ReviewButton from '../components/ReviewForm';
 
 
 
@@ -9,18 +10,20 @@ export default class Movie extends React.Component {
 
         this.state = {
             name : "",
-            stars : '0',
-            ReviewList : []
+            stars : 0,
+            ReviewList : [ ],
+            id : 0
         }
     }
 
     render() {
         return(
-            <div>
-             <h2>{this.props.name}</h2>
-            </div>
+            React.createElement('div', {className: 'card w-75'},
+            React.createElement('div', {className: 'card-header bg-success text-white'}, `${this.props.name}`),
+            React.createElement('div', {className: 'card-body'}, `Star Rating= ${this.props.stars}`),
+            React.createElement('div', {className: 'card-body'}, `Reviews = `),
+            React.createElement('div', {className: 'card-footer'}, ReviewButton),
+            ) 
         )
     }
-
-
 }
