@@ -13,7 +13,6 @@ export default class Movie extends React.Component {
         this.state = {
             name : props.name,
             stars : 0,             
-            starsArray: [props.starsArray],      //Place holder to change to average stars in the future.
             reviewsList: [],
             // reviews: props.reviews,        
             id : props.id                 //im pretty sure this doesnt do anything right now.
@@ -68,11 +67,14 @@ export default class Movie extends React.Component {
         
         return (
         <div>
-            {" "}
+            
             <div className="card w-75">
+            {" "}
                 <div className="card-header bg-success text-white">{this.state.name}</div>
+
                 <div className="card-body">Star Rating = {this.state.stars}</div>
-                <div className="card-body">Reviews = {this.state.reviews}
+                <div className="card-body">Reviews = {this.state.reviewsList}
+                <div className="card-body">id = {this.state.id}</div>
                 
                 </div>  
                 <div className="card-footer">
@@ -83,16 +85,17 @@ export default class Movie extends React.Component {
                     <button className="btn btn-primary" onClick={this.fifthHandleClick}>Five Stars</button>
                 </div>
                 <div className="card-footer">
+
                 <form onSubmit={this.handleSubmit}>
                     <label>
                     Review:
                     <input type="text" value={this.state.value} onChange={this.handleChange} />
                     </label>
-                    <input className="btn btn-primary" type="submit" value="Submit" />
+                    <input className="btn btn-primary" type="submit" value="Submit" onClick={this.handleSubmit} />
                     </form>
                 </div>
             </div>
             </div>
-        )
+        );
     }
 }
