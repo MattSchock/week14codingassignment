@@ -27,10 +27,6 @@ export default class Movie extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
   
-
-
-
-
     handleClick() {
         this.setState({stars : 1})
     }
@@ -65,19 +61,18 @@ export default class Movie extends React.Component {
     render() {
        let reviews = [];
        
-        for(let content of this.state.reviewsList) {
-            reviews.push(<Review {...content}/>);
-            console.log('testingreviews', reviews);
+        for (let i = 0; i < this.state.reviewsList.length; i++) {
+            reviews.push(<Review key={i} review={this.state.reviewsList[i]} />);
         }
+        {console.log('id', this.state)};
         
-       
-
-        {console.log('id', this.state)}
         return (
+        <div>
+            {" "}
             <div className="card w-75">
                 <div className="card-header bg-success text-white">{this.state.name}</div>
                 <div className="card-body">Star Rating = {this.state.stars}</div>
-                <div className="card-body">Reviews = {reviews}
+                <div className="card-body">Reviews = {this.state.reviews}
                 
                 </div>  
                 <div className="card-footer">
@@ -96,6 +91,7 @@ export default class Movie extends React.Component {
                     <input className="btn btn-primary" type="submit" value="Submit" />
                     </form>
                 </div>
+            </div>
             </div>
         )
     }

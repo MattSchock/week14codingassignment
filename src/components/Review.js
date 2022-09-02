@@ -6,7 +6,7 @@ export default class Review extends React.Component {
         return(
             <div className="card-body">
                 
-                <h2>{this.props.content} </h2>
+                <h2>{this.props.review} </h2>
             </div>
         )
     }
