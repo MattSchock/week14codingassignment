@@ -14,8 +14,7 @@ export default class Movie extends React.Component {
             name : props.name,
             stars : 0,             
             starsArray: [props.starsArray],      //Place holder to change to average stars in the future.
-            ReviewList : [],
-            reviews: [],
+            reviewsList: [],
             // reviews: props.reviews,        
             id : props.id                 //im pretty sure this doesnt do anything right now.
         }
@@ -54,8 +53,8 @@ export default class Movie extends React.Component {
 
 
     handleSubmit(event) {
-        this.state.reviews.push(this.state.value)
-        console.log(this.state.reviews);
+        this.state.reviewsList.push(this.state.value)
+        console.log('submitreviewstest',this.state.reviewsList);
         event.preventDefault();
     }
 
@@ -65,18 +64,20 @@ export default class Movie extends React.Component {
 
     render() {
        let reviews = [];
-       if (this.state.reviews) {
-        for(let review of this.state.reviews) {
-            reviews.push(<Review {...review} />);
+       
+        for(let content of this.state.reviewsList) {
+            reviews.push(<Review {...content}/>);
+            console.log('testingreviews', reviews);
         }
-       }
+        
+       
 
         {console.log('id', this.state)}
         return (
             <div className="card w-75">
                 <div className="card-header bg-success text-white">{this.state.name}</div>
                 <div className="card-body">Star Rating = {this.state.stars}</div>
-                <div className="card-body">Reviews = {this.state.reviews}
+                <div className="card-body">Reviews = {reviews}
                 
                 </div>  
                 <div className="card-footer">
