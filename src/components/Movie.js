@@ -11,11 +11,11 @@ export default class Movie extends React.Component {
         super(props);
 
         this.state = {
-            name : props.name,
-            stars : 0,             
+            name: props.name,
+            stars: 0,
             reviewsList: [],
             // reviews: props.reviews,        
-            id : props.id                 //im pretty sure this doesnt do anything right now.
+            id: props.id                 //im pretty sure this doesnt do anything right now.
         }
         this.handleClick = this.handleClick.bind(this);
         this.secondHandleClick = this.secondHandleClick.bind(this);
@@ -25,76 +25,87 @@ export default class Movie extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
-  
+
     handleClick() {
-        this.setState({stars : 1})
+        this.setState({ stars: 1 })
     }
 
     secondHandleClick() {
-        this.setState({stars: 2})
+        this.setState({ stars: 2 })
     }
 
     thirdHandleClick() {
-        this.setState({stars: 3})
+        this.setState({ stars: 3 })
     }
 
     fourthHandleClick() {
-        this.setState({stars: 4})
+        this.setState({ stars: 4 })
     }
 
     fifthHandleClick() {
-        this.setState({stars: 5})
+        this.setState({ stars: 5 })
     }
 
 
     handleSubmit(event) {
-        this.state.reviewsList.push(this.state.value)
-        console.log('submitreviewstest',this.state.reviewsList);
         event.preventDefault();
+        this.state.reviewsList.push(this.state.value)
+        console.log('submitreviewstest', this.state.reviewsList);
+        // event.preventDefault();
     }
 
     handleChange(event) {
-        this.setState({value: event.target.value});
+        this.setState({ value: event.target.value });
     }
 
     render() {
-       let reviews = [];
-       
+        let reviews = [];
+
         for (let i = 0; i < this.state.reviewsList.length; i++) {
             reviews.push(<Review key={i} review={this.state.reviewsList[i]} />);
         }
-        {console.log('id', this.state)};
-        
+        { console.log('id', this.state) };
+
         return (
-        <div>
-            
-            <div className="card w-75">
-            {" "}
-                <div className="card-header bg-success text-white">{this.state.name}</div>
+            <div>
+                <div>
+                    {/* <div>
+                        {" "}
+        //this is the div that holds the movie and the reviews.
+                        <h1>{this.state.name}</h1> //this is the movie name.
+                        <h2>{this.state.stars}</h2>
+                        <h3>{this.state.starsArray}</h3>
+                        <h4>{this.state.reviewsList}</h4> //this is the reviews.
+                        <h5>{this.state.id}</h5> //this is the id.
+                        <button onClick={this.handleClick}>1</button>
+                    </div> */}
 
-                <div className="card-body">Star Rating = {this.state.stars}</div>
-                <div className="card-body">Reviews = {this.state.reviewsList}
-                <div className="card-body">id = {this.state.id}</div>
-                
-                </div>  
-                <div className="card-footer">
-                    <button className="btn btn-primary" onClick={this.handleClick}>One Star</button>
-                    <button className="btn btn-primary" onClick={this.secondHandleClick}>Two Stars</button>
-                    <button className="btn btn-primary" onClick={this.thirdHandleClick}>Three Stars</button>
-                    <button className="btn btn-primary" onClick={this.fourthHandleClick}>Four Stars</button>
-                    <button className="btn btn-primary" onClick={this.fifthHandleClick}>Five Stars</button>
-                </div>
-                <div className="card-footer">
+                    <div className="card-header bg-success text-white">{this.state.name}</div>
 
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                    Review:
-                    <input type="text" value={this.state.value} onChange={this.handleChange} />
-                    </label>
-                    <input className="btn btn-primary" type="submit" value="Submit" onClick={this.handleSubmit} />
-                    </form>
+                    <div className="card-body">Star Rating = {this.state.stars}</div>
+                    <div>{this.state.reviewsList}</div>
+                    <div className="card-body">{this.state.reviewsList}
+                        <div className="card-body">id = {this.state.id}</div>
+
+                    </div>
+                    <div className="card-footer">
+                        <button className="btn btn-primary" onClick={this.handleClick}>One Star</button>
+                        <button className="btn btn-primary" onClick={this.secondHandleClick}>Two Stars</button>
+                        <button className="btn btn-primary" onClick={this.thirdHandleClick}>Three Stars</button>
+                        <button className="btn btn-primary" onClick={this.fourthHandleClick}>Four Stars</button>
+                        <button className="btn btn-primary" onClick={this.fifthHandleClick}>Five Stars</button>
+                    </div>
+                    <div className="card-footer">
+
+                        <form onSubmit={this.handleSubmit}>
+                            <label>
+                                Review:
+                                <input type="text" value={this.state.value} onChange={this.handleChange} />
+                            </label>
+                            <input className="btn btn-primary" type="submit" value="Submit" onClick={this.handleSubmit} />
+                        </form>
+                    </div>
                 </div>
-            </div>
             </div>
         );
     }
