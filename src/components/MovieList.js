@@ -5,6 +5,7 @@ import Movie from './Movie';
 
 
 
+
 export default class MovieList extends React.Component {
     render() {
         return (
@@ -14,7 +15,7 @@ export default class MovieList extends React.Component {
                 <Movie name="Goodfellas"  id='0'/>
                 </div>
                 <div>
-                <Movie name="The God Father"  id='1'/>
+                <Movie name="The God Father" id='1'/>
                 </div>
                 <div>
                 <Movie name="Casino"  id='2'/>

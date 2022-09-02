@@ -1,6 +1,7 @@
 import React from 'react';
 import ReviewButton from '../components/ReviewForm';
 import StarsButton from '../components/Stars';
+import Review from './Review';
 
 
 
@@ -10,25 +11,93 @@ export default class Movie extends React.Component {
         super(props);
 
         this.state = {
-            name : "",
-            stars : 0,             //single placeholder for star rating
-            starsArray : [],      //Array here if I want to average stars in the future
-            ReviewList : ['Review1', 'Review2', 'Review3'],      //hard coded array for strings of reviews
-            id : 0
+            name : props.name,
+            stars : 0,             
+            starsArray: [props.starsArray],      //Place holder to change to average stars in the future.
+            ReviewList : [],
+            reviews: props.reviews,        
+            id : props.id                 //im pretty sure this doesnt do anything right now.
         }
+        this.handleClick = this.handleClick.bind(this);
+        this.secondHandleClick = this.secondHandleClick.bind(this);
+        this.thirdHandleClick = this.thirdHandleClick.bind(this);
+        this.fourthHandleClick = this.fourthHandleClick.bind(this);
+        this.fifthHandleClick = this.fifthHandleClick.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
+  
+
+
+
+
+    handleClick() {
+        this.setState({stars : 1})
+    }
+
+    secondHandleClick() {
+        this.setState({stars: 2})
+    }
+
+    thirdHandleClick() {
+        this.setState({stars: 3})
+    }
+
+    fourthHandleClick() {
+        this.setState({stars: 4})
+    }
+
+    fifthHandleClick() {
+        this.setState({stars: 5})
+    }
+
+    handleSubmit(event) {
+        alert('A name was submitted: ' + this.state.value);
+        this.setState(state => ({reviews: state.reviews.push(this.state.value)}));
+        console.log(this.state);
+        event.preventDefault();
+    }
+
+    handleChange(event) {
+        this.setState({value: event.target.value});
     }
 
     render() {
+       let reviews = [];
+       if (this.state.reviews) {
+        for(let review of this.state.reviews) {
+            reviews.push(<Review {...Review} />);
+        }
+       }
+
+
+
+
+
+        {console.log('id', this.state)}
         return (
             <div className="card w-75">
                 <div className="card-header bg-success text-white">{this.state.name}</div>
                 <div className="card-body">Star Rating = {this.state.stars}</div>
-                <div className="card-body">Reviews = {/*{this.props.ReviewList.forEach(() =>
-                    React.createElement('div', {}, ReviewList[i])
-                )}*/}
+                <div className="card-body">Reviews = {reviews}
                 
                 </div>  
-                <div className="card-footer"><StarsButton /> </div>
+                <div className="card-footer">
+                    <button className="btn btn-primary" onClick={this.handleClick}>One Star</button>
+                    <button className="btn btn-primary" onClick={this.secondHandleClick}>Two Stars</button>
+                    <button className="btn btn-primary" onClick={this.thirdHandleClick}>Three Stars</button>
+                    <button className="btn btn-primary" onClick={this.fourthHandleClick}>Four Stars</button>
+                    <button className="btn btn-primary" onClick={this.fifthHandleClick}>Five Stars</button>
+                </div>
+                <div className="card-footer">
+                <form onSubmit={this.handleSubmit}>
+                    <label>
+                        Review:
+                    <input type="text" value={this.state.value} onChange={this.handleChange} />
+                    </label>
+                    <input className="btn btn-primary" type="submit" value="Submit" />
+                    </form>
+                </div>
             </div>
         )
     }

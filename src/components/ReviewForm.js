@@ -3,11 +3,14 @@
 
 // export default class ReviewButton extends React.Component {
 //     render() {
-//         return (
-//             <div>
-//                 <form className="form-control" type="text" placeholder="Review" id="reviewFormId">Review</form>
-//                 <button className="btn btn-primary" onClick={() => this.setState(state => ({ReviewList: ReviewList.push(reviewFormId.val())}))} >Submit</button>
-//             </div>
-//         )
+//       return (
+//         <form onSubmit={this.handleSubmit} >
+//           <label>
+//             Review:
+//             <input type="text"></input>
+//           </label>
+//           <input className="btn btn-primary" type="submit" value="Submit" />
+//         </form>
+//       );
 //     }
 // }
