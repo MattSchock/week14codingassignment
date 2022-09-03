@@ -51,6 +51,7 @@ export default class Movie extends React.Component {
         event.preventDefault();
         this.state.reviewsList.push(this.state.value)
         console.log('submitreviewstest', this.state.reviewsList);
+        this.setState({});
         // event.preventDefault();
     }
 
@@ -84,7 +85,7 @@ export default class Movie extends React.Component {
 
                     <div className="card-body">Star Rating = {this.state.stars}</div>
                     <div>{this.state.reviewsList}</div>
-                    <div className="card-body">{this.state.reviewsList}
+                    <div className="card-body">{this.state.reviews}
                         <div className="card-body">id = {this.state.id}</div>
 
                     </div>
