@@ -6,7 +6,7 @@ import Movie from './Movie';
 
 
 
-
+// movie list container to hold movies to be reviewed. Movie components passed names in as props.
 export default class MovieList extends React.Component {
     render() {
         return (
